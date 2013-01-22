@@ -1,0 +1,23 @@
+<div>
+<% if @picture.errors.messages.any? %>
+  <ul>
+    <% @picture.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @picture do |f| %>
+  <%= f.label :url, "URL:" %>
+  <%= f.text_field :url %>
+  
+  <%= f.label :title, "Title:" %>
+  <%= f.text_field :title %>
+  
+  <%= f.label :favorite, "Favorite:" %>
+  <%= f.check_box :favorite %>
+  
+  <%= f.submit %>
+  <%= link_to "or Cancel", pictures_url %>
+<% end %>
+</div>

@@ -1,0 +1,18 @@
+<ul>
+<% @pictures.each do |picture| %>
+  <li>
+    <%= link_to image_tag(picture.url, :width => 60), picture_path(picture.id) %>
+    <p><%= picture.title %><p>
+    <p>Favorite? <%= picture.favorite %></p>
+    <nav>
+      <%= link_to 'Details', picture_url(picture.id) %>
+      |
+      <%= link_to 'Edit', edit_picture_url(picture.id)  %>
+      |
+      <%= link_to 'Delete', picture_url(picture.id), :method => 'delete'  %>
+    </nav>
+  </li>
+<% end %>
+</ul>
+
+<%= render 'form' %>
